@@ -16,13 +16,12 @@ public abstract class BaseTest {
     public void setUp(){
         //Load ChromeDriver
         WebDriverManager.chromedriver().setup();
-
         //Instance new ChromeDrive
         webDriver = new ChromeDriver();
     }
 
     @AfterMethod
     public void closeBrowser(){
-       // webDriver.close();
+       webDriver.close();
     }
 }
