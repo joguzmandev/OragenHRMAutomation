@@ -1,4 +1,4 @@
-package org.joguzmandev.demo.helpers;
+package helpers;
 
 public class SleepThread {
     public static void by(long millis) throws InterruptedException {
