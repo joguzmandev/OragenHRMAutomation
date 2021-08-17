@@ -24,7 +24,11 @@ public class TestDropDown {
 
     @Test
     public void test_select_element_dropdown(){
-        WebElement dropDown = webDriver.findElement(By.id("dropdown"));
-      //  Select
+        WebElement dropDownElement = webDriver.findElement(By.id("dropdown"));
+
+        Select dropDown = new Select(dropDownElement);
+
+        dropDown.selectByIndex(2);
+
     }
 }
