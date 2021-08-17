@@ -1,12 +1,15 @@
 package org.joguzmandev.demo.test;
 
 import org.joguzmandev.demo.base.BaseTest;
+import org.joguzmandev.demo.listener.BaseListener;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pages.dashboard.DashboardPage;
 import pages.auth.LoginPage;
 
+@Listeners(value = BaseListener.class)
 public class LoginTest extends BaseTest {
 
     @Test

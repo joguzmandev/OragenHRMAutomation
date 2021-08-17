@@ -1,6 +1,8 @@
 package org.joguzmandev.demo.test;
 
 import org.joguzmandev.demo.base.BaseTest;
+import org.joguzmandev.demo.listener.BaseListener;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import pages.admin.ViewCompanyStructurePage;
@@ -8,6 +10,7 @@ import pages.admin.ViewSystemUsersPage;
 import pages.auth.LoginPage;
 import pages.dashboard.DashboardPage;
 
+@Listeners(value = BaseListener.class)
 public class CreateStructureOrganizationTest extends BaseTest {
 
     @Test(priority = 1)
