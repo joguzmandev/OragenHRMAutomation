@@ -66,7 +66,5 @@ public class ViewCompanyStructurePage {
         this.structureModal.typeDescription(unitDescription);
 
         this.structureModal.clickCancelButton();
-
-        By divMessageBar = By.cssSelector("#messageDiv>#divMessageBar");
     }
 }
