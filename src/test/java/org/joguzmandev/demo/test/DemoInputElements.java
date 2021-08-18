@@ -1,5 +1,6 @@
 package org.joguzmandev.demo.test;
 
+import helpers.TakeScreenShotHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -8,9 +9,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 public class DemoInputElements {
@@ -27,12 +25,17 @@ public class DemoInputElements {
     @Test
     public void test_count_inputs(){
         List<WebElement> elements = webDriver.findElements(By.tagName("input"));
-        System.out.printf("Inputs element count: %s%n", elements.size());
+        JavascriptExecutor executor = ((JavascriptExecutor)webDriver);
+        String jscript = "window.open('http://github.com/joguzmandev')";
+        executor.executeScript(jscript);
+        elements.forEach(webElement -> {
+            TakeScreenShotHelper.takeScreenshot(webElement.getText(),webDriver);
+        });
         Assert.assertEquals(10, elements.size(), "all inputs not found it");
     }
 
     @AfterTest
     public void dispose(){
-        webDriver.close();
+       // webDriver.close();
     }
 }

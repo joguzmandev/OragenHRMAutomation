@@ -42,7 +42,8 @@ public class CreateStructureOrganizationTest extends BaseTest {
                companyStructureMenu.addNewUnitStructureWithAtLeastEmptyFields(unitId,unitName,unitDescription);
        String expectedResult = "Required";
 
-       Assert.assertEquals(actualResult,expectedResult);
+       Assert.assertEquals(actualResult,expectedResult,"Required field is empty");
+
     }
 
     @Test(priority = 1)
@@ -74,7 +75,7 @@ public class CreateStructureOrganizationTest extends BaseTest {
                 companyStructureMenu.addNewUnitStructureWithAtLeastEmptyFields(unitId,unitName,unitDescription);
         String expectedResult = "Required";
 
-        Assert.assertEquals(actualResult,expectedResult);
+        Assert.assertEquals(actualResult,expectedResult,"Required field is empty");
     }
 
     @Test(priority = 1)
@@ -105,11 +106,11 @@ public class CreateStructureOrganizationTest extends BaseTest {
         String actualResult =
                 companyStructureMenu.addNewUnitStructureWithRequiredFieldNotEmpty(unitId,unitName,unitDescription);
 
-        Assert.assertTrue(actualResult.contains("Successfully Saved"));
+        Assert.assertEquals(actualResult,"Successfully Saved","Cannot create unit structure,it Already Exists ");
     }
 
     @Test(priority = 2)
-    public void test_create_structure_organization_with_required_field_exist(){
+    public void test_recreate_structure_organization_with_required_field_existing(){
         webDriver.manage().window().maximize();
 
         LoginPage loginPage = new LoginPage(this.webDriver);
@@ -136,7 +137,7 @@ public class CreateStructureOrganizationTest extends BaseTest {
         String actualResult =
                 companyStructureMenu.addNewUnitStructureWithRequiredFieldNotEmpty(unitId,unitName,unitDescription);
 
-        Assert.assertTrue(actualResult.contains("Name Already Exists"));
+        Assert.assertEquals(actualResult,"Name Already Exists","Required field not exists");
     }
 
     @Test(priority = 3)
@@ -167,7 +168,7 @@ public class CreateStructureOrganizationTest extends BaseTest {
         String actualResult =
                 companyStructureMenu.addNewUnitStructureWithRequiredFieldNotEmpty(unitId,unitName,unitDescription);
 
-        Assert.assertTrue(actualResult.contains("Successfully Saved"));
+        Assert.assertEquals(actualResult,"Successfully Saved","Cannot create unit structure, it already exists ");
     }
 
     @Test(priority = 4)

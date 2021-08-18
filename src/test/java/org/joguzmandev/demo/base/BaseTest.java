@@ -1,11 +1,13 @@
 package org.joguzmandev.demo.base;
 
+import helpers.TakeScreenShotHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -22,21 +24,15 @@ public abstract class BaseTest {
     public void setUp() {
         //Load ChromeDriver
         WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless");
         //Instance new ChromeDrive
-        webDriver = new ChromeDriver();
+        webDriver = new ChromeDriver(chromeOptions);
         webDriver.get("https://opensource-demo.orangehrmlive.com/");
     }
 
     @AfterMethod
-    public void disposeWebDriver(ITestResult testResult) throws IOException {
-
-        synchronized (this){
-            if(!testResult.isSuccess()){
-                File currentScreenshot = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
-                FileUtils.copyFile(currentScreenshot,new File(System.getProperty("user.dir")+"\\photo\\"+testResult.getName()+"_"+System.currentTimeMillis()+".png"));
-            }
+    public void disposeWebDriver(ITestResult testResult){
             webDriver.close();
-        }
-
     }
 }
