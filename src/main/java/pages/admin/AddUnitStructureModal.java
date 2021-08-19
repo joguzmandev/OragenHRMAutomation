@@ -5,13 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddUnitStructureModal {
 
     private WebDriverWait webDriverWait;
-    private WebDriver webDriver;
 
     @FindBy(id = "txtUnit_Id")
     private WebElement unitIdField;
@@ -30,7 +28,6 @@ public class AddUnitStructureModal {
 
     public AddUnitStructureModal(WebDriver webDriver) {
         PageFactory.initElements(webDriver, this);
-        this.webDriver = webDriver;
         this.webDriverWait = new WebDriverWait(webDriver, 5);
     }
 

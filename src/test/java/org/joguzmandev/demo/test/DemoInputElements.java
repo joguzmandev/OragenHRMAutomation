@@ -1,15 +1,19 @@
 package org.joguzmandev.demo.test;
 
-import helpers.TakeScreenShotHelper;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import java.util.List;
+
+import helpers.TakeScreenShotHelper;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DemoInputElements {
     private WebDriver webDriver;

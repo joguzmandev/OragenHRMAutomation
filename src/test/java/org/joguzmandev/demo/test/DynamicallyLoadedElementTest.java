@@ -10,8 +10,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.others.DynamicallyLoadedElementPage;
 
-import java.util.concurrent.TimeUnit;
-
 public class DynamicallyLoadedElementTest {
 
     private WebDriver webDriver;
