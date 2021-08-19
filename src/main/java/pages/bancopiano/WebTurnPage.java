@@ -8,5 +8,4 @@ public class WebTurnPage {
 	public WebTurnPage(WebDriver webDriver) {
 		this.webDriver = webDriver;
 	}
-
 }
