@@ -13,7 +13,7 @@ public class WebTurnTest {
     private WebDriver webDriver;
 
     @BeforeTest
-    public void setUp(){
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
@@ -21,7 +21,7 @@ public class WebTurnTest {
     }
 
     @Test
-    public void test_request_web_turn(){
+    public void test_request_web_turn_all_empty_fields() {
         HomePage homePage = new HomePage(webDriver);
         //Step 1 : Close Modal
         homePage.clickToCloseModalButton();
@@ -29,11 +29,13 @@ public class WebTurnTest {
         homePage.clickToWebTurnButton();
         //Step 3 : Click to not Retired or Pensioner Modal button
         homePage.clickToNotButtonRetiredOrPensionerWindowModal();
+        //Step 4 : Click to Request turn button
+        homePage.clickToDoValidationWithAllFieldsEmpty();
 
     }
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
 
     }
 }

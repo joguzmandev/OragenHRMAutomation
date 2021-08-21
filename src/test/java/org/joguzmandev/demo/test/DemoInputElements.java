@@ -30,8 +30,6 @@ public class DemoInputElements {
     public void test_count_inputs(){
         List<WebElement> elements = webDriver.findElements(By.tagName("input"));
         JavascriptExecutor executor = ((JavascriptExecutor)webDriver);
-        String jscript = "window.open('http://github.com/joguzmandev')";
-        executor.executeScript(jscript);
         elements.forEach(webElement -> {
             TakeScreenShotHelper.takeScreenshot(webElement.getText(),webDriver);
         });
